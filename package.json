@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "nodemon index"
-    
+    "start": "nodemon ./bin/server.js"
   },
   "author": "",
   "license": "ISC",
