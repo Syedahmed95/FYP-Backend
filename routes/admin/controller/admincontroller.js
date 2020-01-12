@@ -5,7 +5,7 @@ const admin = require("../adminModel")
      try{
          //Saving the data into database of the admin
         let store= new admin({username:user.username, password:user.password});
-        let datasave = store.save();
+        let datasave = await store.save();
         if(datasave)
         res.status(200).json({
             message: "Data saved",
@@ -13,7 +13,11 @@ const admin = require("../adminModel")
 
      }
     catch(error){
-        console.log(error)
+        if(error){
+            return res.status(404).json({
+                message: "Fields required"
+            })
+        }
     }
 }
 

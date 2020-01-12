@@ -11,7 +11,7 @@ const Certificates = require("../certificatesModel");
                         CGPA: data.CGPA,
                         YOG: data.YOG}
         let store= new Certificates(storage);
-        let datasave = store.save();
+        let datasave = await store.save();
         if(datasave){
         res.status(200).json({
             message: "Data saved",
@@ -20,7 +20,11 @@ const Certificates = require("../certificatesModel");
 
      }
     catch(error){
-        console.log(error)
+        if(error){
+            return res.status(404).json({
+                message: "Fields required"
+            })
+        }
     }
 }
 

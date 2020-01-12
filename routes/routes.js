@@ -7,7 +7,7 @@ var signin_student = require("../routes/students/controller/Fetchstudentcontroll
 var Certificates_Save = require("../routes/certificates/controller/certificatesSave");
 var FetchCer = require("../routes/certificates/controller/certificatesfetchbyrollnum");
 var allCer = require("./certificates/controller/AllCertificates");
-var studentSignup = require("./students/controller/PostStudent");
+var studentSignup = require("../routes/students/controller/PostStudent");
 
     router.route('/signin').get(signin);
     router.route("/signup").post(signup);
