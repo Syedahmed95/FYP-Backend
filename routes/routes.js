@@ -11,7 +11,7 @@ module.exports = function(app, router) {
 
   router.route("/admin/signin").post(signin);
   router.route("/admin/signup").post(signup);
-  router.route("/student/signin").get(signin_student);
+  router.route("/student/signin").post(signin_student);
   router.route("/student/signup").post(studentSignup);
   router.route("/student/certificate").get(FetchCer);
   router.route("/admin/certificates/issue").post(Certificates_Save);
