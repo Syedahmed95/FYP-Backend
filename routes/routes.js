@@ -9,7 +9,7 @@ module.exports = function(app, router) {
   var allCer = require("./certificates/controller/AllCertificates");
   var studentSignup = require("../routes/students/controller/PostStudent");
 
-  router.route("/admin/signin").get(signin);
+  router.route("/admin/signin").post(signin);
   router.route("/admin/signup").post(signup);
   router.route("/student/signin").get(signin_student);
   router.route("/student/signup").post(studentSignup);
