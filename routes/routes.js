@@ -13,7 +13,7 @@ module.exports = function(app, router) {
   router.route("/admin/signup").post(signup);
   router.route("/student/signin").get(signin_student);
   router.route("/student/signup").post(studentSignup);
-  router.route("/certificates/issue").post(Certificates_Save);
-  router.route("/certificates/").get(FetchCer);
-  router.route("/certificates").get(allCer);
+  router.route("/student/certificate").get(FetchCer);
+  router.route("/admin/certificates/issue").post(Certificates_Save);
+  router.route("/admin/certificates").get(allCer);
 };
