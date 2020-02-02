@@ -1,4 +1,6 @@
 const findCer = require("../certificatesModel");
+const mongoose = require("mongoose")
+const fetch = require("node-fetch")
 
 const fetchCertificates = async (req, res) => {
   let rolluser = req.query;
@@ -11,10 +13,16 @@ const fetchCertificates = async (req, res) => {
       });
     }
     if (data) {
-      res.status(200).json({
-        data: data,
+      for(let i=0; i<data.length; i++){
+        let alldata = data[i]
+        let ipfsdata = await fetch(`https://ipfs.io/ipfs/${alldata.Hash}`);
+        let fetchdata = await ipfsdata.json()
+        res.status(200).json({
+        data: fetchdata,
         message: "authorized"
       });
+      }
+      
     }
   } catch (error) {
     console.log(error);

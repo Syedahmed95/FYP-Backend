@@ -8,7 +8,6 @@ app.use(body.json());
 app.use(cors());
 var router = express.Router();
 app.use("/", router);
-// app.use("/", () => "hello world");
 require("./routes/routes")(app, router);
 mongoose.connect(
   "mongodb+srv://Auction:model@auction-ujxcw.mongodb.net/test?retryWrites=true&w=majority",

@@ -1,4 +1,5 @@
-const findCer = require("../certificatesModel")
+const findCer = require("../certificatesModel");
+const fetch = require("node-fetch");
 
 const fetchCertificates = async(req,res)=>{
     
@@ -10,13 +11,18 @@ const fetchCertificates = async(req,res)=>{
                message: "Cannot find"
            })
         }
+        let temp = [];
         if(data){
-            res.status(200).json({
-                data: data,
-                message: "authorized"
-            })
-        }
+            let mapdata = data.map((data=> { return "https://ipfs.io/ipfs/"+data.Hash}));
+           
+            for(let i=0; i<mapdata.length; i++){
+            let testdata = await fetch(mapdata[i]);
+            let jsontest = await testdata.json();
+            temp.push(jsontest);
+           }
+           res.status(200).json({data:temp, message: "Authorized"})
     }
+        }
     catch(error){
         console.log(error)
     }
