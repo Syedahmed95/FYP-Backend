@@ -3,7 +3,7 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema,
   MODEL = new Schema({
     //FullName: {type: String, required: true},
-    RollNumber: {type: String, required: true},
+    RollNumber: {type: String, required: true, unique: true},
     Hash: {type: String, required: true}
     // MajorDepartment: {type: String, required: true},
     // Program: {type: String, required: true},

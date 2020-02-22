@@ -32,7 +32,8 @@ CertificatesPost = async (req, res) => {
     catch (error){
     if (error) {
       return res.status(404).json({
-        message: "Fields required"
+        message: "Fields required",
+        error: error
       });
     }
   }
