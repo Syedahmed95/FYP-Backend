@@ -7,6 +7,7 @@ CertificatesPost = async (req, res) => {
   let data = req.body;
    let storage = {
     FullName: data.FullName,
+    FathersName: data.FathersName,
     RollNumber: data.RollNumber,
     MajorDepartment: data.MajorDepartment,
     Program: data.Program,
