@@ -8,18 +8,17 @@ const fetchAdmin = async (req, res) => {
     //Signing in checking here of admin
     let data = await admin.find({
       username: adminuser.username,
-      // password: hashpass
-      password: adminuser.password
+      password: hashpass
     });
     if (data.length <= 0) {
-      console.log("Admin: ", data);
       res.status(400).json({
         message: "Wrong details"
       });
     } else if (data) {
       res.status(200).json({
         data: data,
-        message: "authorized"
+        message: "authorized",
+        success: true
       });
     }
   } catch (error) {
